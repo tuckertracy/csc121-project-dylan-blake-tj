@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import processing.event.MouseEvent;
+import processing.event.KeyEvent;
 
 public class Player {
 	int x;
@@ -17,9 +19,11 @@ public class Player {
 	
 	/** Draw player */
 	PApplet draw(PApplet c) {
+		
 		c.rect(this.x, this.y, this.width,this.height);
 		c.circle(this.x + this.width/2, this.y, this.headSize);
-		
+		  
 		return c;
 	}
+	
 }

@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.event.MouseEvent;
+import processing.event.KeyEvent;
 
 /**
  * Represents an interactive application where a drop of

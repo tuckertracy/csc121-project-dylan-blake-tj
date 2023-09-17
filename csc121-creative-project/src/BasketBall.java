@@ -1,11 +1,11 @@
 import processing.core.PApplet;
 
 public class BasketBall {
-	int x;
-	int y;
+	double x;
+	double y;
 	int radius;
 	
-	public BasketBall(int x, int y, int radius) {
+	public BasketBall(double x, double y, int radius) {
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
@@ -14,7 +14,7 @@ public class BasketBall {
 	/** Draw basket ball */
 	PApplet draw(PApplet c) {
 		
-		c.circle(this.x, this.y, this.radius);
+		c.circle((int) this.x, (int) this.y, this.radius);
 		
 		return c;
 	}
