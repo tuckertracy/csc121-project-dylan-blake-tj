@@ -19,7 +19,7 @@ public class Player {
 	
 	/** Draw player */
 	PApplet draw(PApplet c) {
-		
+	   c.fill(0, 0, 255);
 		c.rect(this.x, this.y, this.width,this.height);
 		c.circle(this.x + this.width/2, this.y, this.headSize);
 		  

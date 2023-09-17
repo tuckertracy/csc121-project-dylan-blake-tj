@@ -3,10 +3,10 @@ import java.util.Objects;
 import processing.core.PApplet;
 
 public class Posn {
-	int x;
-	int y;
+	float x;
+	float y;
 	
-	public Posn(int x, int y) {
+	public Posn(float x, float y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -14,14 +14,14 @@ public class Posn {
 	/**
      * @return the x
      */
-    public int getX() {
+    public float getX() {
         return x;
     }
 
     /**
      * @return the y
      */
-    public int getY() {
+    public float getY() {
         return y;
     }
     
@@ -39,7 +39,7 @@ public class Posn {
     
     /** produces this posn's coordinates multiplied by d */
     public Posn scale(double d) {
-        return new Posn((int)(this.x * d), (int)(this.y * d));
+        return new Posn((float)(this.x * d), (float)(this.y * d));
     }
     
     /** moves this posn by the given offsets */

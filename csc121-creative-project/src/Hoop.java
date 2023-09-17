@@ -56,6 +56,7 @@ public class Hoop {
 	
 	/** Draw basketball hoop */
 	PApplet draw(PApplet c) {
+	   c.fill(0, 0, 255);
 		c.rect(this.x,this.y,this.po.getWidth(),this.po.getHeight());
 		c.rect(this.x - this.b.getWidth()/2, this.y - this.po.getHeight()/2, 
 				this.b.getWidth(), this.b.getHeight());
