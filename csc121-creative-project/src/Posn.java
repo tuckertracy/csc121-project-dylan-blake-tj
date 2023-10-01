@@ -69,4 +69,5 @@ public class Posn {
     public Posn diff(Posn that) {
         return new Posn( that.x - this.x,  that.y - this.y );
     }
+    
 }

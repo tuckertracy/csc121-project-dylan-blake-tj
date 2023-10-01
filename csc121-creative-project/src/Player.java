@@ -26,4 +26,8 @@ public class Player {
 		return c;
 	}
 	
+	Player move(int lat, int vert) {
+		return new Player(this.x + lat, this.y + vert,this.height,this.width,this.headSize);
+	}
+	
 }

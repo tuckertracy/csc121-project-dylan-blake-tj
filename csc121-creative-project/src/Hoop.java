@@ -37,17 +37,15 @@ class Pole {
  }
 
 public class Hoop {
-	int x;
-	int y;
+	Posn loc;
 	Pole po;
 	Board b;
-	boolean shotMade;
 	int radius;
+	boolean shotMade;
 	
 	
-	public Hoop(int x, int y, Pole po, Board b, int radius, boolean shotMade) {
-		this.x = x;
-		this.y = y;
+	public Hoop(Posn loc, Pole po, Board b, int radius, boolean shotMade) {
+		this.loc = loc;
 		this.po = po;
 		this.b = b;
 		this.radius = radius;
@@ -57,11 +55,18 @@ public class Hoop {
 	/** Draw basketball hoop */
 	PApplet draw(PApplet c) {
 	   c.fill(0, 0, 255);
-		c.rect(this.x,this.y,this.po.getWidth(),this.po.getHeight());
-		c.rect(this.x - this.b.getWidth()/2, this.y - this.po.getHeight()/2, 
+		c.rect(this.loc.x,this.loc.y,this.po.getWidth(),this.po.getHeight());
+		c.rect(this.loc.x - this.b.getWidth()/2, this.loc.y - this.po.getHeight()/2, 
 				this.b.getWidth(), this.b.getHeight());
-		c.circle(this.x - this.b.getWidth()/2, this.y, this.radius);
+		c.circle(this.loc.x - this.b.getWidth()/2, this.loc.y, this.radius);
 		return c;
+	}
+	
+	public boolean shotIn(Posn that) {
+		if(this.loc.distanceTo(that) <= this.radius) {
+			this.shotMade=true;
+		}
+		return shotMade;
 	}
 	
 
