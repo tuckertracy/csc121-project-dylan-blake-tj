@@ -32,6 +32,14 @@ public class BasketBall {
 	                          this.radius);
 	}
 
+	/**
+	 * When the ball hits the back board its x velocity is reversed.
+	 * @return
+	 */
+	BasketBall hit() {
+		this.vel = new Posn(-this.vel.x, this.vel.y);
+	    return this.move();
+	}
 	
 
     @Override

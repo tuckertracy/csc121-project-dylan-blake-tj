@@ -58,7 +58,7 @@ public class Hoop {
 		c.rect(this.loc.x,this.loc.y,this.po.getWidth(),this.po.getHeight());
 		c.rect(this.loc.x - this.b.getWidth()/2, this.loc.y - this.po.getHeight()/2, 
 				this.b.getWidth(), this.b.getHeight());
-		c.circle(this.loc.x - this.b.getWidth()/2, this.loc.y, this.radius);
+		c.circle(this.loc.x-this.b.getWidth()/2-this.radius/2, this.loc.y, this.radius);
 		return c;
 	}
 	

@@ -46,9 +46,18 @@ public class World {
 
 		if(ball.loc.y >= shotVertex.y) {
 			return new World(this.ball.move(), hoop, p, time+1, score, shotVertex);
-		} else {
+		}
+		
+		if((ball.loc.y >= hoop.loc.y ) && 
+				(ball.loc.x >= hoop.loc.x)) {
+			//this.ball.vel = new Posn(-this.ball.vel.x, this.ball.vel.y);
+			return new World(this.ball.hit(), hoop, p, time, score, shotVertex);
+		}
+		
+		else {
 			return this;
 		}
+		
 		
 		
 
