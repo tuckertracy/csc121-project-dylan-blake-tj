@@ -8,7 +8,7 @@ public class Player {
 	int height;
 	int width;
 	int headSize;
-	
+
 	public Player(int x, int y, int height, int width, int headSize) {
 		this.x = x;
 		this.y = y;
@@ -16,18 +16,20 @@ public class Player {
 		this.width = width;
 		this.headSize = headSize;
 	}	
-	
+
 	/** Draw player */
 	PApplet draw(PApplet c) {
-	   c.fill(0, 0, 255);
+		int halfOfPlayer = 2;
+
+		c.fill(0, 0, 255);
 		c.rect(this.x, this.y, this.width,this.height);
-		c.circle(this.x + this.width/2, this.y, this.headSize);
-		  
+		c.circle(this.x + this.width/halfOfPlayer, this.y, this.headSize);
+
 		return c;
 	}
-	
+
 	Player move(int lat, int vert) {
 		return new Player(this.x + lat, this.y + vert,this.height,this.width,this.headSize);
 	}
-	
+
 }

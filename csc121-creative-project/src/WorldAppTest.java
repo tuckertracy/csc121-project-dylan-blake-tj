@@ -15,6 +15,11 @@ class WorldAppTest {
         
         assertEquals(true, b1.loc.distanceTo(h1.loc) <= 25);
         
+        
+        
+        assertEquals(b1.vel.x, 4);
+        BasketBall b2 = b1.hit(); 
+        assertEquals(b2.vel.x, -4);
     }
 
 }

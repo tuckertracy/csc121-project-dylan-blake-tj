@@ -39,31 +39,52 @@ public class World {
 	 */
 
 	public World update() {
-		
+		int increment = 1;
+
 		if(ball.loc.distanceTo(hoop.loc) <= hoop.radius) {
-			return new World(this.ball.move(), hoop, p, time+1, score + 10, shotVertex);
+			return new World(this.ball.move(), hoop, p, time + increment, score + increment, shotVertex);
 		}
 
 		if(ball.loc.y >= shotVertex.y) {
-			return new World(this.ball.move(), hoop, p, time+1, score, shotVertex);
+<<<<<<< HEAD
+			return new World(this.ball.move(), hoop, p, time + increment, score, shotVertex);
 		} else {
+			return this;
+		}
+
+
+=======
+			return new World(this.ball.move(), hoop, p, time+1, score, shotVertex);
+		}
+		
+		if((ball.loc.y >= hoop.loc.y ) && 
+				(ball.loc.x >= hoop.loc.x)) {
+			//this.ball.vel = new Posn(-this.ball.vel.x, this.ball.vel.y);
+			return new World(this.ball.hit(), hoop, p, time, score, shotVertex);
+		}
+		
+		else {
 			return this;
 		}
 		
 		
+		
+>>>>>>> 0d8540d73a57120b49c496f211989dd6c6110b3e
 
 	}
 
 	public World keyPressed(KeyEvent key) {
 		char k = key.getKey();
+		
+		int positionChange = 5;
 
 		if (k == 'a') {
 			return new World(ball, hoop,
-					p.move(-5,0), time,score,shotVertex);
+					p.move(-positionChange,0), time,score,shotVertex);
 
 		} else if (k == 'd') {
 			return new World(ball, hoop,
-					this.p.move(5,0), time,score,shotVertex);
+					this.p.move(positionChange,0), time,score,shotVertex);
 		}  else
 			return this;
 	}
@@ -73,12 +94,13 @@ public class World {
 	 * location of the mouse press.
 	 */
 	public World mousePressed(MouseEvent mev) { 
-		int reducePowerFactor = 15;
-		
+		int reducePower = 15;
+
 		Posn vertex = new Posn(mev.getX(),mev.getY()); 
-		return new World(new BasketBall(new Posn(p.x, p.y), 
-						new Posn( (shotVertex.x - p.x) / reducePowerFactor, 
-								  (shotVertex.y - p.y) / reducePowerFactor ), 
+		return new World(
+				new BasketBall(
+						new Posn(p.x, p.y), 
+						new Posn( (shotVertex.x - p.x) / reducePower, (shotVertex.y - p.y) / reducePower), 
 						ball.radius),
 				hoop,p,time,score,vertex); }
 
