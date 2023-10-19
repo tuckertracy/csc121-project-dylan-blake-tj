@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class WorldAppTest {
 
     BasketBall b1 = new BasketBall(new Posn(260, 210), new Posn(4, 3), 15);
-    Hoop h1 = new Hoop(new Posn(250,230),new Pole(60,10),new Board(40,48),20,false);
+    Hoop h1 = new Hoop(new Posn(250,230),new Pole(60,10),new Board(40,48),20);
     
     @Test
     void testBallMethods() {

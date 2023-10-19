@@ -40,42 +40,36 @@ public class World {
 
 	public World update() {
 		int increment = 1;
+		World state = this;
 
-		if(ball.loc.distanceTo(hoop.loc) <= hoop.radius) {
-			return new World(this.ball.move(), hoop, p, time + increment, score + increment, shotVertex);
-		}
 
 		if(ball.loc.y >= shotVertex.y) {
-<<<<<<< HEAD
-			return new World(this.ball.move(), hoop, p, time + increment, score, shotVertex);
+			state = new World(this.ball.move(), hoop, p, time + increment, score, shotVertex);
 		} else {
-			return this;
+			state = new World(this.ball.move(), hoop, p, time + increment, score, shotVertex);
 		}
 
-
-=======
-			return new World(this.ball.move(), hoop, p, time+1, score, shotVertex);
-		}
-		
-		if((ball.loc.y >= hoop.loc.y ) && 
-				(ball.loc.x >= hoop.loc.x)) {
+		if(
+			( (ball.loc.y <= hoop.loc.y & ball.loc.y >= hoop.loc.y - hoop.b.getHeight()) & 
+					(ball.loc.x >= hoop.loc.x - hoop.b.getWidth()/2 ) )
+			
+				) {
 			//this.ball.vel = new Posn(-this.ball.vel.x, this.ball.vel.y);
-			return new World(this.ball.hit(), hoop, p, time, score, shotVertex);
+			state = new World(this.ball.hit(), hoop, p, time, score, shotVertex);
+		} 
+		
+		if(this.hoop.shotIn(this.ball.loc)) {
+			state = new World(this.ball.move(), hoop, p, time + increment, score + increment, shotVertex);
+		} else {
+			return state;
 		}
 		
-		else {
-			return this;
-		}
-		
-		
-		
->>>>>>> 0d8540d73a57120b49c496f211989dd6c6110b3e
-
+		return state;
 	}
 
 	public World keyPressed(KeyEvent key) {
 		char k = key.getKey();
-		
+
 		int positionChange = 5;
 
 		if (k == 'a') {

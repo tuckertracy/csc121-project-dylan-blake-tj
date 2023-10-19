@@ -38,7 +38,6 @@ public class Hoop {
 	Pole po;
 	Board b;
 	int radius;
-	boolean shotMade;
 
 
 	public Hoop(Posn loc, Pole po, Board b, int radius, boolean shotMade) {
