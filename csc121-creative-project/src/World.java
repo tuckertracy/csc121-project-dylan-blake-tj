@@ -91,14 +91,16 @@ public class World {
 	 */
 	public World mousePressed(MouseEvent mev) { 
 		int reducePower = 15;
-		
+	
 		Posn vertex = new Posn(mev.getX(),mev.getY()); 
+		
 		return new World(
 				new BasketBall(
-						new Posn(p.x, p.y), 
-						new Posn( (shotVertex.x - p.x) / reducePower, (shotVertex.y - p.y) / reducePower), 
+						new Posn(p.returnX(), p.returnY()), 
+						new Posn( (shotVertex.x - p.returnX()) / reducePower, (shotVertex.y - p.returnY()) / reducePower), 
 						ball.radius),
-				hoop,p,time,score,vertex); }
+				hoop,p,time,score, vertex); 
+		}
 
 
 }
