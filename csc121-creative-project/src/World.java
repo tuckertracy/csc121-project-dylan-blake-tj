@@ -9,6 +9,7 @@ public class World {
 	int time;
 	int score;
 	Posn shotVertex;
+	
 
 	public World(BasketBall ball, Hoop hoop, Player p, int time, int score, Posn shotVertex) {
 		this.ball = ball;
@@ -24,6 +25,7 @@ public class World {
 	 */
 	public PApplet draw(PApplet c) {
 		c.background(255);
+		c.fill(0, 0, 0);
 		c.text(score,10,10);
 		c.text(time/60, 280,10);
 
@@ -89,7 +91,7 @@ public class World {
 	 */
 	public World mousePressed(MouseEvent mev) { 
 		int reducePower = 15;
-
+		
 		Posn vertex = new Posn(mev.getX(),mev.getY()); 
 		return new World(
 				new BasketBall(

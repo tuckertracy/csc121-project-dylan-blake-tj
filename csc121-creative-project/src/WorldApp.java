@@ -16,8 +16,8 @@ public class WorldApp extends PApplet {
 	public void setup() {
 		w = new World(
 				new BasketBall(new Posn(150,260), new Posn(4, -2), 10),
-				new Hoop(new Posn(250,230),new Pole(60,10),new Board(40,40),20),
-				new Player(120,260,40,10,15),
+				new Hoop(new Posn(250,230),new Pole(100,10),new Board(50,10),20),
+				new Player(120,260,20,10,15),
 				0,
 				0,
 				new Posn(120,300));

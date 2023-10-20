@@ -61,18 +61,21 @@ public class Hoop {
 		float boardWidth = this.b.getWidth();
 		float boardHeight = this.b.getHeight();
 				
-		c.fill(0, 0, 255);
+		
 		
 		/** draw the pole */
-		c.rect(hoopX,hoopY,poleWidth,poleHeight);
+		c.fill(0, 0, 0);
+		c.rect(hoopX,hoopY - boardHeight/2,poleWidth,poleHeight);
 		
 		/** draw the board */
-		c.rect(hoopX - boardWidth/halfOfShape + poleWidth/halfOfShape, hoopY - boardHeight, 
+		c.fill(192, 192, 192);
+		c.rect(hoopX - boardWidth + poleWidth/halfOfShape, hoopY - boardHeight, 
 				boardWidth, boardHeight);
 		
 		/** draw the hoop */
-		c.circle(hoopX - boardWidth/halfOfShape, hoopY - boardHeight/quarterOfShape, this.radius);
-		
+		c.fill(255, 165, 0);
+		//c.circle(hoopX - boardWidth/halfOfShape, hoopY - boardHeight/quarterOfShape, this.radius);
+		c.ellipse(hoopX - boardWidth-quarterOfShape, hoopY - boardHeight/quarterOfShape, this.radius, this.radius/3);
 
 		return c;
 	}

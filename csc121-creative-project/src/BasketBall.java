@@ -16,7 +16,8 @@ public class BasketBall {
 
     /** Draw basket ball */
 	PApplet draw(PApplet c) {
-		c.fill(255, 0, 0);
+		//draws the ball
+		c.fill(255, 165, 0);
 		c.circle((int) this.loc.getX(), (int) this.loc.getY(), this.radius);
 		
 		return c;
