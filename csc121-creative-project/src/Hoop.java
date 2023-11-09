@@ -82,7 +82,8 @@ public class Hoop {
 
 	public boolean shotIn(Posn that) {
 		boolean shotMade = false;
-		if(this.loc.distanceTo(that) <= this.radius) {
+		Posn rim = new Posn(235,215);
+		if(rim.distanceTo(that) <= 4) {
 			shotMade = true;
 		}
 		return shotMade;

@@ -14,6 +14,7 @@ public class World {
 	int time;
 	int score;
 	Posn shotVertex;
+	int shotsMade;
 
 
 	public World(BasketBall ball, Hoop hoop, Player p, int time, int score, Posn shotVertex) {
@@ -28,17 +29,219 @@ public class World {
 	/**
 	 * Renders a picture of the drop on the window
 	 */
-	public PApplet draw(PApplet c) {
-		c.background(255);
-		c.fill(0, 0, 0);
-		c.text(score,10,10);
-		c.text(time/60, 280,10);
 
-		this.ball.draw(c);
-		this.p.draw(c);
-		this.hoop.draw(c);
+	public PApplet draw(PApplet c) {
+		int move = 40;
+
+		switch(score) {
+		case 0:
+			c.background(102, 102, 255);
+			
+			
+			// first cloud
+			c.fill(255);
+			c.rect(100 - move, 50,70,20);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(100 - move,50,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(110 - move,53,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(120 - move,30,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(130 - move,50,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(140 - move,30,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(145 - move,57,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(155 - move,45,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(160 - move,55,40);
+			
+			// second cloud
+			c.fill(255);
+			c.rect(100 + move*2, 50 + move,70,20);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(100 + move*2,50 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(110 + move*2,53 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(120 + move*2,30 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(130 + move*2,50 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(140 + move*2,30 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(145 + move*2,57 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(155 + move*2,45 + move,40);
+			
+			c.fill(255);
+			c.stroke(255);
+			c.circle(160 + move*2 ,55 + move,40);
+			
+			
+			
+			c.noStroke();
+			
+			
+			
+			
+			c.fill(0);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			//c.circle(235, 215, 10);
+			break;
+		case 1:
+			c.background(0);
+			c.fill(224,224,224);
+			c.circle(100, 100, 50);
+			c.fill(255, 255, 255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 2:
+			c.background(0);
+			c.fill(196,164,132);
+			c.circle(100, 100, 100);
+			c.fill(255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 3:
+			c.background(0);
+			c.fill(152, 251, 152);
+			c.circle(100, 100, 150);
+			c.fill(255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 4:
+			c.background(0);
+			c.fill(0,0,255);
+			c.circle(100, 100, 150);
+			c.fill(255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 5:
+			c.background(0);
+			c.fill(204,153,102);
+			c.circle(100, 100, 150);
+			c.noFill();
+			c.stroke(150,75,0);
+			c.ellipse(100,100,200,5);
+			c.fill(255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 6:
+			c.background(0);
+			c.fill(153,255,255);
+			c.circle(100, 100, 150);
+			c.fill(255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 7:
+			c.background(0);
+			c.fill(255,153,204);
+			c.circle(100, 100, 150);
+			c.fill(255);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+		case 8:
+			c.background(0);
+			c.fill(0,0,102);
+			c.circle(100, 100, 150);
+			c.fill(0, 0, 0);
+			c.text(score,10,10);
+			c.text(time/60, 280,10);
+			c.text(shotsMade, 150,10);
+
+			this.ball.draw(c);
+			this.p.draw(c);
+			this.hoop.draw(c);
+			break;
+
+
+		} 
+
 
 		return c;
+
+
 	}
 
 	/**
@@ -66,10 +269,13 @@ public class World {
 		} 
 
 		if(this.hoop.shotIn(this.ball.loc)) {
-			state = new World(this.ball.move(), hoop, p, time + increment, score + increment, shotVertex);
-		} else {
-			return state;
+
+			state = new World(this.ball.move(), hoop, p.move(-5 ,0), time + increment,  score + increment, shotVertex);
 		}
+
+
+
+
 
 		return state;
 	}
@@ -77,16 +283,17 @@ public class World {
 	public World keyPressed(KeyEvent key) {
 		char k = key.getKey();
 
-		int positionChange = 5;
+		// int positionChange = 5;
 
-		if (k == 'a') {
+		/*if (k == 'a') {
 			return new World(ball, hoop,
 					p.move(-positionChange,0), time,score,shotVertex);
 
 		} else if (k == 'd') {
 			return new World(ball, hoop,
 					this.p.move(positionChange,0), time,score,shotVertex);
-		}  else if (k=='e') {
+		} */  
+		if (k=='e') {
 			this.saveScore();
 			this.copyScores();
 			this.orderScores();
@@ -202,16 +409,16 @@ public class World {
 
 
 	}
-	
+
 	public void orderScores() {
 		try {
 			File scores = new File("output.txt");
-						
+
 			Scanner sc = new Scanner(new File("output.txt"));
 			PrintWriter pw = new PrintWriter(new File("leaderboard.txt"));
-			
+
 			/** sorts the current entries in the output file **/
-			
+
 			// create an empty array
 			ArrayList<Integer> al = new ArrayList<Integer>();
 
@@ -220,7 +427,7 @@ public class World {
 				int s = sc.nextInt();
 				al.add(s);
 			}
-			
+
 			// sort the array list
 			Collections.sort(al, Collections.reverseOrder());
 
@@ -228,10 +435,10 @@ public class World {
 			for(int i = 0 ; i < 5 ; i++) {
 				pw.println(i+1 + ") " + al.get(i));
 			}
-			
+
 			sc.close();
 			pw.close();
-			
+
 		} catch (IOException e) {
 			System.out.print("err");
 		}
