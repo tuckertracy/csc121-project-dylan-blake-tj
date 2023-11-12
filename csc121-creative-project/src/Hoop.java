@@ -64,7 +64,7 @@ public class Hoop {
 		
 		
 		/** draw the pole */
-		c.fill(0, 0, 0);
+		c.fill(255,165,0);
 		c.rect(hoopX,hoopY - boardHeight/2,poleWidth,poleHeight);
 		
 		/** draw the board */
@@ -76,14 +76,17 @@ public class Hoop {
 		c.fill(255, 165, 0);
 		//c.circle(hoopX - boardWidth/halfOfShape, hoopY - boardHeight/quarterOfShape, this.radius);
 		c.ellipse(hoopX - boardWidth-quarterOfShape, hoopY - boardHeight/quarterOfShape, this.radius, this.radius/3);
-
+		
+		// draw the net
+		c.fill(255);
+		c.circle(236, 222, 10);
+		
 		return c;
 	}
 
 	public boolean shotIn(Posn that) {
 		boolean shotMade = false;
-		Posn rim = new Posn(235,215);
-		if(rim.distanceTo(that) <= 4) {
+		if(new Posn(236,222).distanceTo(that) <= 4) {
 			shotMade = true;
 		}
 		return shotMade;

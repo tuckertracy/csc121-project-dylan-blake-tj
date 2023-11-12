@@ -15,7 +15,6 @@ public class World {
 	int time;
 	int score;
 	Posn shotVertex;
-	int shotsMade;
 
 
 	public World(BasketBall ball, Hoop hoop, Player p, int time, int score, Posn shotVertex) {
@@ -33,6 +32,8 @@ public class World {
 
 	public PApplet draw(PApplet c) {
 		int move = 40;
+		
+		
 
 		switch(score) {
 		case 0:
@@ -121,12 +122,19 @@ public class World {
 			c.fill(0);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
-			//c.circle(235, 215, 10);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 1:
 			c.background(0);
@@ -151,11 +159,19 @@ public class World {
 			c.fill(255, 255, 255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 2:
 			c.background(0);
@@ -167,8 +183,6 @@ public class World {
 			c.ellipse(100, 55, 35,10);
 			c.noStroke();
 
-			//136, 8, 8
-
 			c.fill(255);
 			c.stroke(47,79,79);
 			c.ellipse(100, 145, 30,10);
@@ -177,7 +191,6 @@ public class World {
 			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			c.fill(136, 8, 8);
 			c.stroke(136,0,0);
@@ -198,6 +211,15 @@ public class World {
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 3:
 			c.background(0);
@@ -205,7 +227,7 @@ public class World {
 			c.circle(100, 100, 150);
 
 
-			
+			// stars
 			c.fill(255);
 			c.circle(215,150,4);
 			c.fill(255);
@@ -236,25 +258,52 @@ public class World {
 			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 
 		case 4:
 			c.background(0);
 			c.fill(0,0,255);
 			c.circle(100, 100, 150);
+
+			c.fill(255);
+			c.stroke(255);
+			c.ellipse(75, 75, 60, 2);
+
+			c.fill(255);
+			c.stroke(255);
+			c.ellipse(125, 125, 60, 2);
+			c.noStroke();
+
+
 			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 5:
 			c.background(0);
@@ -263,56 +312,200 @@ public class World {
 
 			c.noFill();
 			c.stroke(150,75,0);
-			c.ellipse(100,100,200,5);
+			//c.ellipse(100,100,200,10);
+
+			c.noFill();
+			c.arc(100, 100, 200, 10, (float) 0.0 , (float) 3.14159 );
+			c.line(5, 105, 195, 110);
+			c.line(5, 110, 195, 105);
+
+			c.noStroke();
 
 			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 6:
 			c.background(0);
-			c.fill(153,255,255);
+			
+			
+			c.fill(128,0,0);
 			c.circle(100, 100, 150);
+			c.fill(255);
+			c.noStroke();
+			
+			// snow on pluto
+			c.circle(125, 80, 85);
+			c.circle(135, 100, 80);
+			c.circle(150, 85, 45);
+			c.circle(100, 70, 45);
+			c.circle(100, 60, 50);
+			c.circle(115, 55, 60);
+			c.circle(140, 120, 45);
+			c.circle(135, 120, 60);
+			c.circle(145, 125, 20);
+			c.circle(150, 130, 30);
+			c.circle(100, 50, 50);
+			c.circle(150, 140, 20);
+			c.circle(140, 140, 40);
+			c.circle(100, 50, 20);
+
 			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 7:
 			c.background(0);
 			c.fill(255,153,204);
 			c.circle(100, 100, 150);
+			c.fill(0);
+			//c.circle(50, 75, 3);
+			c.circle(150, 125, 150);
+			c.fill(255, 174, 66);
+			c.circle(200, 100, 40);
+			c.fill(173, 216, 230);
+			c.circle(160, 165, 30);
+			
+			
+			
 			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
 			break;
 		case 8:
 			c.background(0);
-			c.fill(0,0,102);
+			c.fill(104,71,141);		
+			
 			c.circle(100, 100, 150);
-			c.fill(0, 0, 0);
+			
+			c.fill(255, 255, 0);
+			c.circle(215, 60, 30);
+			
+			c.stroke(255, 255, 0);
+			c.line(171, 80, 200,70);
+			c.line(163, 60, 200,63);
+			c.line(174, 105, 205,73);
+			c.noStroke();
+			
+			Random rand = new Random();
+			int rand_int1 = rand.nextInt(0,255);
+	        int rand_int2 = rand.nextInt(0,255);
+	        int rand_int3 = rand.nextInt(0,255);
+			
+			c.fill(rand_int1,rand_int2,rand_int3);
+			
+			// stars
+			
+			c.circle(215,150,4);
+			
+			//c.fill(255);
+			
+			c.circle(240,70,4);
+			
+			//c.fill(255);
+			
+			c.circle(150,30,4);
+			
+			//c.fill(255);
+			
+			c.circle(200,95,4);
+			
+			
+			//c.fill(255);
+			
+			c.circle(260,30,4);
+			
+			//c.fill(255);
+			
+			c.circle(20,180,4);
+			
+			//c.fill(255);
+			
+			c.circle(120,200,4);
+			
+			//c.fill(255);
+			
+			c.circle(60,20,4);
+			
+			//c.fill(255);
+			
+			c.circle(20,20,4);
+			
+			//c.fill(255);
+			
+			c.circle(85,230,4);
+			
+			//c.fill(255);
+			
+			c.circle(170,225,4);
+			
+			//c.fill(255);
+			
+			c.circle(185,190,4);
+			
+			c.fill(255);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-			c.text(shotsMade, 150,10);
 
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
+			if(time <= 0) {
+				c.background(0);
+				c.textSize(40);
+				c.fill(255);
+				c.text("Times Up!", 70, 150);
+				this.saveScore();
+				this.copyScores();
+				this.orderScores();
+			}
+			this.saveScore();
+			this.copyScores();
+			this.orderScores();
 			break;
+		case 9:
+			c.background(0);
+			c.textSize(40);
+			c.text("You Win!", 80, 150);
 
 
 		} 
@@ -333,23 +526,23 @@ public class World {
 
 
 		if(ball.loc.y >= shotVertex.y) {
-			state = new World(this.ball.move(), hoop, p, time + increment, score, shotVertex);
+			state = new World(this.ball.move(), hoop, p, time - increment, score, shotVertex);
 		} else {
-			state = new World(this.ball.move(), hoop, p, time + increment, score, shotVertex);
+			state = new World(this.ball.move(), hoop, p, time - increment, score, shotVertex);
 		}
 
 		if(
 				( (ball.loc.y <= hoop.loc.y & ball.loc.y >= hoop.loc.y - hoop.b.getHeight()) & 
-						(ball.loc.x >= hoop.loc.x - hoop.b.getWidth()/2 ) )
+						(ball.loc.x >= hoop.loc.x - hoop.b.getWidth()/2 )
 
-				) {
+				)) {
 			//this.ball.vel = new Posn(-this.ball.vel.x, this.ball.vel.y);
-			state = new World(this.ball.hit(), hoop, p, time, score, shotVertex);
+			state = new World(this.ball.hit(), hoop, p, time - increment, score, shotVertex);
 		} 
 
 		if(this.hoop.shotIn(this.ball.loc)) {
 
-			state = new World(this.ball.move(), hoop, p.move(-5 ,0), time + increment,  score + increment, shotVertex);
+			state = new World(this.ball.move(), hoop, p.move(-5 ,0), time - increment,  score + increment, shotVertex);
 		}
 
 
@@ -510,9 +703,14 @@ public class World {
 			// sort the array list
 			Collections.sort(al, Collections.reverseOrder());
 
-
-			for(int i = 0 ; i < 5 ; i++) {
-				pw.println(i+1 + ") " + al.get(i));
+			if (al.size() < 5) {
+				for(int i = 0 ; i < al.size() ; i++) {
+					pw.println(i+1 + ") " + al.get(i));
+				}
+			} else {
+				for(int i = 0 ; i < 5 ; i++) {
+					pw.println(i+1 + ") " + al.get(i));
+				}
 			}
 
 			sc.close();
