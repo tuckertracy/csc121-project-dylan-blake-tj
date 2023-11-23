@@ -21,9 +21,10 @@ public class WorldApp extends PApplet {
 				new Hoop(new Posn(250,230),new Pole(100,10),new Board(50,10),20),
 				new Player(150,260,20,10,15),
 				3600,
-				0,
-				new Posn(120,300)
+				-1,
+				new Posn(120,300), new Button(width/2 - 50, height/2, 100, 50, 255)
 				);
+		
 		}
 
 	public void draw() {

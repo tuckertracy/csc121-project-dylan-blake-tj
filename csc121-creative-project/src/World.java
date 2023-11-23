@@ -15,15 +15,16 @@ public class World {
 	int time;
 	int score;
 	Posn shotVertex;
+	Button start;
 
-
-	public World(BasketBall ball, Hoop hoop, Player p, int time, int score, Posn shotVertex) {
+	public World(BasketBall ball, Hoop hoop, Player p, int time, int score, Posn shotVertex, Button start) {
 		this.ball = ball;
 		this.hoop = hoop;
 		this.p = p;
 		this.time = time;
 		this.score = score;
 		this.shotVertex = shotVertex;
+		this.start = start;
 	}
 
 	/**
@@ -36,9 +37,22 @@ public class World {
 		
 
 		switch(score) {
+		case -1:
+			c.background(42);
+			c.textSize(40);
+			c.fill(255);
+			c.text("121 Game", 80, 100);
+			this.start.Draw(c);
+			c.textSize(20);
+			c.fill(42);
+			c.text("Start Game", 104, 184);
+			this.start.checkButton(c);
+			if (start.isPressed(c)) {
+				score++;
+			}
+			break;
 		case 0:
 			c.background(102, 102, 255);
-
 
 			// first cloud
 			c.fill(255);
@@ -120,9 +134,10 @@ public class World {
 
 
 			c.fill(0);
+			c.textSize(15);
 			c.text(score,10,10);
 			c.text(time/60, 280,10);
-
+			
 			this.ball.draw(c);
 			this.p.draw(c);
 			this.hoop.draw(c);
@@ -507,7 +522,6 @@ public class World {
 			c.textSize(40);
 			c.text("You Win!", 80, 150);
 
-
 		} 
 
 
@@ -524,11 +538,12 @@ public class World {
 		int increment = 1;
 		World state = this;
 
-
+		if (score > -1) {
 		if(ball.loc.y >= shotVertex.y) {
-			state = new World(this.ball.move(), hoop, p, time - increment, score, shotVertex);
+			state = new World(this.ball.move(), hoop, p, time - increment, score, shotVertex, start);
 		} else {
-			state = new World(this.ball.move(), hoop, p, time - increment, score, shotVertex);
+			state = new World(this.ball.move(), hoop, p, time - increment, score, shotVertex, start);
+		}
 		}
 
 		if(
@@ -537,12 +552,12 @@ public class World {
 
 				)) {
 			//this.ball.vel = new Posn(-this.ball.vel.x, this.ball.vel.y);
-			state = new World(this.ball.hit(), hoop, p, time - increment, score, shotVertex);
+			state = new World(this.ball.hit(), hoop, p, time - increment, score, shotVertex, start);
 		} 
 
 		if(this.hoop.shotIn(this.ball.loc)) {
 
-			state = new World(this.ball.move(), hoop, p.move(-5 ,0), time - increment,  score + increment, shotVertex);
+			state = new World(this.ball.move(), hoop, p.move(-5 ,0), time - increment,  score + increment, shotVertex, start);
 		}
 
 
@@ -589,7 +604,7 @@ public class World {
 						new Posn(p.returnX(), p.returnY()), 
 						new Posn( (shotVertex.x - p.returnX()) / reducePower, (shotVertex.y - p.returnY()) / reducePower), 
 						ball.radius),
-				hoop,p,time,score, vertex); 
+				hoop,p,time,score, vertex, start); 
 	}
 
 	public void saveScore() {
